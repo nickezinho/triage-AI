@@ -25,41 +25,50 @@ class TriageViewSet(viewsets.ModelViewSet):
         resposta=resposta,
         model="gemini-3-flash-preview"
         )
+
         
 
 class NearbyHospitalsView(APIView):
- 
-    def get(self, request):
-    
-        symptoms = request.get("symptoms")
-        lat = request.data.get("lat")
-        lng = request.data.get("lng")
 
-        ai_service = GeminiService()
-        ai_response = ai_service.analise(symptoms)
-        speciality = ai_response["especialidades_recomendadas"][0]
+    def get(self, request):
+
+        lat = request.query_params.get("lat")
+        lng = request.query_params.get("lng")
+        speciality = request.query_params.get("speciality")
+
         service = MapsService()
-    
-        hospitals = service.search_hospital(lat,lng,speciality)
-    
+
+        hospitals = service.search_hospital(lat, lng, speciality)
+
         return Response(hospitals)
 
-#class for tests !!!
+
+# #class for tests !!!
 # class NearbyHospitalsView(APIView):
  
-#  def get(self, request):
+#     def get(self, request):
  
-#  lat = -23.3169879
-#  lng = -46.7303273
-#  speciality = 'Clinica Geral'
-#  service = MapsService()
+#         lat = -23.3169879
+#         lng = -46.7303273
+#         speciality = 'Clinica Geral'
+#         service = MapsService()
  
-#  hospitals = service.search_hospital(lat,lng,speciality)
+#         hospitals = service.search_hospital(lat,lng,speciality)
  
-#  return Response(hospitals)
+#         return Response(hospitals)
 
 
 class AiAnalysesViewSet(viewsets.ModelViewSet):
     queryset = AIanalyses.objects.all()
     serializer_class = AIanalysesSerializer
     http_method_names = ['get']
+
+    def get_queryset(self):
+        queryset = AIanalyses.objects.all()
+        triage_id = self.request.query_params.get('triage')
+
+        if triage_id:
+            queryset = queryset.filter(triage_id=triage_id)
+        
+        return queryset
+
