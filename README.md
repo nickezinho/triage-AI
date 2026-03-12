@@ -9,10 +9,10 @@ The system receives symptom data, generates a risk analysis using AI, and return
 # Demonstration 
 
 ## Triage Interface
-![Swagger Screenshot](docs/triage.png)
+![Triage Screenshot](docs/triage.png)
 
 ## Analysis Interface
-![Swagger Screenshot](docs/interface.png)
+![Analysis Screenshot](docs/interface.png)
 
 ## Swagger Documentation
 ![Swagger Screenshot](docs/swagger.png)
