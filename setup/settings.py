@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'triage',
     'rest_framework',
     'corsheaders',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -125,4 +126,13 @@ GENAI_API_KEY = os.getenv("GENAI_API_KEY")
 
 MAPS_API_KEY= os.getenv("MAPS_API_KEY")
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True #just for testing
+
+REST_FRAMEWORK = {
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '3/day',
+    }
+}
