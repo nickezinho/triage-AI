@@ -57,30 +57,30 @@ class TriageViewSet(viewsets.ModelViewSet):
 
 class NearbyHospitalsView(APIView):
     """
-    Nearby hospitals endpoint.
+        Nearby hospitals endpoint.
 
-    Return hospitals near the provided geographic coordinates.
-    The hospitals are retrieved using the Google Maps API.
+        Returns hospitals near the provided geographic coordinates.
+        The hospitals are retrieved using the Google Maps API.
 
-    Query paramaters:
-    - lat (float): Latitude of the user location
-    - lng (float): Longitude of the user location
-    - speciality (string): Medical speciality used to filter hospitals
+        Query parameters:
+        - lat (float): Latitude of the user location
+        - lng (float): Longitude of the user location
+        - speciality (string): Medical speciality used to filter hospitals
 
-    Example request:
+        Example request:
 
-    GET /hospitals/nearby/?lat=-XX.XXXX&lng=-XX.XXXX&speciality=cardiology
+        GET /hospitals/nearby/?lat=-XX.XXXX&lng=-XX.XXXX&speciality=cardiology
 
-    Example response:
+        Example response:
 
-    [
-        {
-            "name":"Hospital Santa Cruz",
-            "adress":"Rua Santa Cruz, São Paulo",
-            "maps_link":"https://maps.google.com/..."
-        }
-    ]
-    """
+        [
+            {
+                "name": "Hospital Santa Cruz",
+                "address": "Rua Santa Cruz, São Paulo",
+                "maps_link": "https://maps.google.com/..."
+            }
+        ]
+        """
 
     def get(self, request):
         """
