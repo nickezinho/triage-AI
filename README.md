@@ -8,6 +8,12 @@ The system receives symptom data, generates a risk analysis using AI, and return
 
 # Demonstration 
 
+## Triage Interface
+![Swagger Screenshot](docs/triage.png)
+
+## Analysis Interface
+![Swagger Screenshot](docs/interface.png)
+
 ## Swagger Documentation
 ![Swagger Screenshot](docs/swagger.png)
 
@@ -215,6 +221,19 @@ triage-ai/
  ├ manage.py
  └ requirements.txt
  ```
+
+ # Frontend Interface
+
+The project also includes a simple frontend interface that allows users to:
+
+- Submit symptoms
+- View AI medical analysis
+- Retrieve nearby hospitals
+
+You can use it on my github:
+```link
+https://github.com/nickezinho/frontend-triage.git
+```
  
  # Future Upgrades
  - Higher Advanced risk classification
