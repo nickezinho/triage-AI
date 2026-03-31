@@ -2,7 +2,7 @@ import google.genai as genai
 from django.conf import settings
 import json
  
-client = genai.Client(api_key='AIzaSyB3j0V_OMudq_7122WZwzSt3jSZvYzAPrE')
+client = genai.Client(api_key='')
  
 class GeminiService:
 

@@ -1,6 +1,8 @@
 import googlemaps
+import os
 
-MAPS_API_KEY = 'AIzaSyAWJBDjW-mOYDGFNm4p1RhxN7csM_TPVRs'
+
+MAPS_API_KEY = ''
 
 
 class MapsService:
